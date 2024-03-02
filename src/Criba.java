@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  * Clase que se encarga de generar todos los numeros primos desde 1 hasta el numero introducido por el usuario.
  * @author Manuel B
- * @version 1.0 02/03/2024
+ * @version 2.0 02/03/2024
  */
 public class Criba {
 
@@ -42,11 +42,10 @@ public class Criba {
 
     /**
      *Metodo nicializar el Array con tododos los elementos a true.
-     * @param arrayLength Longitud del array, usada para realizar el recorrido del mismo.
      * @param esPrimo Array de tipo booleano a inicializar
      */
     //Inicializar el array con todos los elementos a True.
-    private static void inicializarArrayTrue(boolean[] esPrimo) {
+    public static void inicializarArrayTrue(boolean[] esPrimo) {
         for (int i = 0; i < esPrimo.length; i++) {
             esPrimo[i] = true;
         }
@@ -54,11 +53,10 @@ public class Criba {
 
     /**
      * Metodo que realiza la criba de todos los numeros no primos, cambiando a false el estado de los mismos.
-     * @param arrayLength Longitud del array, usada para realizar el recorrido del mismo.
      * @param esPrimo Array de tipo booleano sobre el cual realizar la criba
      */
     //Cambiar a False todos los no primos.
-    private static void cribaPrimos(boolean[] esPrimo) {
+    public static void cribaPrimos(boolean[] esPrimo) {
         for (int i = 2; i < Math.sqrt(esPrimo.length) + 1; i++) {
             if (esPrimo[i]) {
                 // Eliminar los múltiplos de i
@@ -71,12 +69,11 @@ public class Criba {
 
     /**
      * Metodo que realiza la cuenta total de los números que si son primos.
-     * @param arrayLength Longitud del array usada, usada para realizar el recorrido del mismo.
      * @param esPrimo Array de tipo booleano sobre el cual realizar el computo.
      * @return Devuelve un valor int con la cantidad de numeros primos.
      */
     //Devolver la cantidad de numeros primos.
-    private static int getCuentaPrimos(boolean[] esPrimo) {
+    public static int getCuentaPrimos(boolean[] esPrimo) {
         int cuenta = 0;
         for (int i = 0; i < esPrimo.length; i++) {
             if (esPrimo[i]) {
@@ -88,12 +85,11 @@ public class Criba {
 
     /**
      * Metodo que inicializa el array primos con los numeros primos contenidos en esPrimo.
-     * @param arrayLength Longitud del Array, usada para el recorrido del mismo.
      * @param esPrimo Array del cual obtener cada uno de los numeros primos.
      * @param primos Array a inicializar con los numeros primos contenidos en esPrimo.
      */
     //Inicializar el array con los numeros primos
-    private static void inicializarArrayPrimos(boolean[] esPrimo, int[] primos) {
+    public static void inicializarArrayPrimos(boolean[] esPrimo, int[] primos) {
         for (int i = 0, j = 0; i < esPrimo.length; i++) {
             if (esPrimo[i]) {
                 primos[j] = i;
