@@ -7,11 +7,11 @@ public class Criba {
 
         if (max >= 2) {
             // Declaraciones
-            int dim = max + 1; // Tamaño del array
-            boolean[] esPrimo = new boolean[dim];
+            int arrayLength = max + 1; // Tamaño del array
+            boolean[] esPrimo = new boolean[arrayLength];
 
             // Inicializar el array
-            for (int i = 0; i < dim; i++) {
+            for (int i = 0; i < arrayLength; i++) {
                 esPrimo[i] = true;
             }
 
@@ -20,10 +20,10 @@ public class Criba {
             esPrimo[1] = false;
 
             // Criba
-            for (int i = 2; i < Math.sqrt(dim) + 1; i++) {
+            for (int i = 2; i < Math.sqrt(arrayLength) + 1; i++) {
                 if (esPrimo[i]) {
                     // Eliminar los múltiplos de i
-                    for (int j = 2 * i; j < dim; j += i) {
+                    for (int j = 2 * i; j < arrayLength; j += i) {
                         esPrimo[j] = false;
                     }
                 }
@@ -31,7 +31,7 @@ public class Criba {
 
             // ¿Cuántos primos hay?
             int cuenta = 0;
-            for (int i = 0; i < dim; i++) {
+            for (int i = 0; i < arrayLength; i++) {
                 if (esPrimo[i]) {
                     cuenta++;
                 }
@@ -39,7 +39,7 @@ public class Criba {
 
             // Rellenar el vector de números primos
             int[] primos = new int[cuenta];
-            for (int i = 0, j = 0; i < dim; i++) {
+            for (int i = 0, j = 0; i < arrayLength; i++) {
                 if (esPrimo[i]) {
                     primos[j++] = i;
                 }
@@ -82,7 +82,3 @@ public class Criba {
         }
     }
 }
-
-/*Modificaciones:
-* Separar asignacion a false de 0 y 1
-* Eliminar declaración de int i, j y declararlos dentro de cada for.*/
