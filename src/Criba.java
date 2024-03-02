@@ -67,8 +67,8 @@ public class Criba {
         for (int i = 0; i < vector.length; i++) {
             if ( (i % 10) == 0) {
                 System.out.println();
-                System.out.print(i + 1 + "\t");
             }
+            System.out.print(i + 1 + "\t");
         }
 
         //Mostrar todos los numeros primos
@@ -77,8 +77,8 @@ public class Criba {
         for (int i = 0; i < vector.length; i++) {
             if ( (i % 10) == 0) {
                 System.out.println();
-                System.out.print(vector[i] + "\t");
             }
+            System.out.print(vector[i] + "\t");
         }
     }
 }
