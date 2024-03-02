@@ -5,26 +5,25 @@ public class Criba {
     // Generar números primos de 1 a max
     public static int[] generarPrimos (int max) {
 
-        int i, j;
-
         if (max >= 2) {
             // Declaraciones
             int dim = max + 1; // Tamaño del array
             boolean[] esPrimo = new boolean[dim];
 
             // Inicializar el array
-            for (i = 0; i < dim; i++) {
+            for (int i = 0; i < dim; i++) {
                 esPrimo[i] = true;
             }
 
             // Eliminar el 0 y el 1, que no son primos
-            esPrimo[0] = esPrimo[1] = false;
+            esPrimo[0] = false;
+            esPrimo[1] = false;
 
             // Criba
-            for (i = 2; i < Math.sqrt(dim) + 1; i++) {
+            for (int i = 2; i < Math.sqrt(dim) + 1; i++) {
                 if (esPrimo[i]) {
                     // Eliminar los múltiplos de i
-                    for (j = 2 * i; j < dim; j += i) {
+                    for (int j = 2 * i; j < dim; j += i) {
                         esPrimo[j] = false;
                     }
                 }
@@ -32,7 +31,7 @@ public class Criba {
 
             // ¿Cuántos primos hay?
             int cuenta = 0;
-            for (i = 0; i < dim; i++) {
+            for (int i = 0; i < dim; i++) {
                 if (esPrimo[i]) {
                     cuenta++;
                 }
@@ -40,7 +39,7 @@ public class Criba {
 
             // Rellenar el vector de números primos
             int[] primos = new int[cuenta];
-            for (i = 0, j = 0; i < dim; i++) {
+            for (int i = 0, j = 0; i < dim; i++) {
                 if (esPrimo[i]) {
                     primos[j++] = i;
                 }
@@ -85,4 +84,5 @@ public class Criba {
 }
 
 /*Modificaciones:
-* Reestructurar el codigo para mejor lectura*/
+* Separar asignacion a false de 0 y 1
+* Eliminar declaración de int i, j y declararlos dentro de cada for.*/
